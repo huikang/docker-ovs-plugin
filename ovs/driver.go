@@ -232,8 +232,7 @@ func NewDriver() (*Driver, error) {
 	var ovsdb *libovsdb.OvsdbClient
 	retries := 3
 	for i := 0; i < retries; i++ {
-		//ovsdb, err = libovsdb.Connect(localhost, ovsdbPort)
-		ovsdb, err = libovsdb.ConnectWithUnixSocket("/var/run/openvswitch/db.sock")
+		ovsdb, err = libovsdb.Connect(localhost, ovsdbPort)
 		if err == nil {
 			break
 		}
